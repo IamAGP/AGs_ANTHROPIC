@@ -1,19 +1,19 @@
 {
   "config": {
     "model": "claude-sonnet-4-5-20250929",
-    "prompt_variant": "default",
+    "prompt_variant": "verbose",
     "test_dataset": "data/eval_dataset.json",
-    "num_questions": 1
+    "num_questions": 15
   },
   "metrics": {
-    "total_questions": 1,
+    "total_questions": 15,
     "errors": 0,
-    "valid_results": 1,
+    "valid_results": 15,
     "accuracy": 1.0,
-    "correct_answers": 1,
+    "correct_answers": 15,
     "failure_mode_breakdown": {
       "success": {
-        "count": 1,
+        "count": 15,
         "percentage": 100.0
       },
       "retrieval_failure": {
@@ -38,24 +38,24 @@
       }
     },
     "retrieval_metrics": {
-      "avg_precision": 0.3333333333333333,
+      "avg_precision": 0.33333333333333326,
       "avg_recall": 1.0
     },
     "context_usage_metrics": {
       "avg_groundedness": 1.0
     },
     "semantic_similarity": {
-      "average": 0.8115816116333008
+      "average": 0.7860917170842489
     },
-    "total_time_seconds": 15.545793056488037,
-    "avg_time_per_question": 15.545793056488037
+    "total_time_seconds": 200.02152490615845,
+    "avg_time_per_question": 13.33476832707723
   },
   "detailed_results": [
     {
       "test_id": "test_001",
       "question": "What is your return policy?",
       "expected_answer": "Most items can be returned within 30 days of delivery for a full refund. Items must be unused, in original packaging, and in the same condition as received.",
-      "agent_answer": "According to our Return Policy Overview (faq_001), you can return most items within 30 days of delivery for a full refund. Items must be unused, in original packaging, and in the same condition as received. Refunds are processed within 5-7 business days after we receive your return.\n\nTo initiate a return, simply log into your account, go to 'Order History', find the order you want to return, click 'Return Items', select the items and reason for return, then print the prepaid return shipping label. You can drop off the package at any authorized carrier location.\n\nIs there anything specific about returns you'd like to know more about?",
+      "agent_answer": "I'll search our FAQ database for information about our return policy.Based on our FAQ database, here's our return policy:\n\n**Return Policy:**\n- You can return most items within **30 days of delivery** for a full refund\n- Items must be:\n  - Unused\n  - In original packaging\n  - In the same condition as received\n- Refunds are processed within **5-7 business days** after we receive your return\n\n**How to Return Items:**\n1. Log into your account\n2. Go to 'Order History'\n3. Find the order you want to return\n4. Click 'Return Items'\n5. Select the items and reason for return\n6. Print the prepaid return shipping label\n7. Drop off the package at any authorized carrier location\n\n**Note:** We don't offer direct exchanges. If you want to exchange an item, you'll need to return the original item for a refund and then place a new order for the desired item.\n\n*(Source: FAQ documents faq_001, faq_002, faq_006)*\n\nIs there anything specific about returns you'd like to know more about?",
       "answerable": true,
       "grading": {
         "retrieval": {
@@ -82,9 +82,9 @@
         "answer_quality": {
           "correct": true,
           "exact_match": false,
-          "semantic_similarity": 0.8115816116333008,
+          "semantic_similarity": 0.6561238765716553,
           "llm_judge_correct": true,
-          "llm_judge_reasoning": "The agent's answer includes all the key elements of the expected answer:\n1. Returns possible within 30 days of delivery\n2. Items must be unused\n3. Items must be in original packaging\n4. Items must be in the same condition as received\n\nAdditionally, the agent provides extra helpful information about the return process, such as how to initiate a return and refund processing time. The core return policy details match the ground truth exactly, making this a comprehensive and accurate response to the customer's question."
+          "llm_judge_reasoning": "The agent's answer fully matches the ground truth answer and provides even more comprehensive information. The key points are identical:\n- 30-day return window\n- Items must be unused\n- Items must be in original packaging\n- Items must be in same condition as received\n\nAdditionally, the agent provided extra helpful details like how to process a return and that refunds are processed within 5-7 business days, which enhances the answer without contradicting the core policy. The response directly addresses the customer's question and provides clear, actionable information."
         }
       },
       "failure_analysis": {
@@ -94,13 +94,13 @@
       },
       "metadata": {
         "model": "claude-sonnet-4-5-20250929",
-        "prompt_variant": "default",
-        "total_cost_usd": 0.055697699999999996,
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.02992815,
         "usage": {
           "input_tokens": 8,
-          "cache_creation_input_tokens": 3402,
-          "cache_read_input_tokens": 28484,
-          "output_tokens": 229,
+          "cache_creation_input_tokens": 1115,
+          "cache_read_input_tokens": 30138,
+          "output_tokens": 336,
           "server_tool_use": {
             "web_search_requests": 0,
             "web_fetch_requests": 0
@@ -108,11 +108,921 @@
           "service_tier": "standard",
           "cache_creation": {
             "ephemeral_1h_input_tokens": 0,
-            "ephemeral_5m_input_tokens": 3402
+            "ephemeral_5m_input_tokens": 1115
           }
         },
         "turn_count": 2,
-        "duration_ms": 7055
+        "duration_ms": 6314
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_002",
+      "question": "How do I reset my password?",
+      "expected_answer": "Click 'Forgot Password' on the login page, enter your email address, and we'll send you a password reset link. The link expires after 24 hours.",
+      "agent_answer": "To reset your password:\n\n1. **Click \"Forgot Password\"** on the login page\n2. **Enter your email address** - we'll send you a password reset link\n3. **Check your email** - the reset link will arrive shortly\n4. **Use the link within 24 hours** - it expires after that time\n5. **Check your spam folder** if you don't see the email in your inbox\n\n*Source: FAQ Document faq_022 - Reset Password*\n\nIf you have any trouble receiving the reset email or the link has expired, please let me know and I can help you further!",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_022",
+            "faq_030",
+            "faq_023"
+          ],
+          "expected_doc_ids": [
+            "faq_022"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.7823019027709961,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer provides a clear, step-by-step explanation of the password reset process that matches the ground truth exactly. The key points are all present: clicking \"Forgot Password\", entering email address, receiving a reset link, and noting the 24-hour expiration. The agent even added a helpful tip about checking the spam folder and offered further assistance, which goes beyond the basic requirements and provides good customer support."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.02138855,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 783,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 218,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 783
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 6176
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_003",
+      "question": "How long does standard shipping take?",
+      "expected_answer": "Standard shipping takes 5-7 business days for delivery within the continental US. Orders are processed within 1-2 business days.",
+      "agent_answer": "Based on our FAQ database, **standard shipping takes 5-7 business days** for delivery within the continental US. \n\nAdditionally:\n- Orders are processed within 1-2 business days before shipping\n- You'll receive a tracking number via email once your order ships\n\nIf you need faster delivery, we also offer expedited options like 2-day express or next-day overnight shipping.\n\n*(Source: FAQ document faq_011 - Standard Shipping Times)*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_011",
+            "faq_012",
+            "faq_014"
+          ],
+          "expected_doc_ids": [
+            "faq_011"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.9309756755828857,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer accurately matches the key information in the ground truth. It correctly states the standard shipping time as 5-7 business days, mentions order processing takes 1-2 business days, and even provides additional helpful context about tracking and expedited shipping options. The response directly addresses the customer's question with precise, clear information and includes a source reference."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.020599799999999998,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 806,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 190,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 806
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5627
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_004",
+      "question": "What payment methods do you accept?",
+      "expected_answer": "We accept Visa, Mastercard, American Express, Discover, PayPal, Apple Pay, Google Pay, and Amazon Pay. Gift cards and store credit can also be used.",
+      "agent_answer": "I'll search our FAQ database to find information about accepted payment methods.Based on our FAQ database, we accept the following payment methods:\n\n**Credit Cards:**\n- Visa\n- Mastercard\n- American Express\n- Discover\n\n**Digital Wallets:**\n- PayPal\n- Apple Pay\n- Google Pay\n- Amazon Pay\n\n**Other:**\n- Gift cards\n- Store credit\n\n**Note:** We do not accept checks or money orders.\n\nYou can also save up to 5 payment methods in your account for faster checkout, and all payment information is protected with bank-level encryption.\n\n*(Source: FAQ document faq_041 - Accepted Payment Methods)*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_041",
+            "faq_027",
+            "faq_043"
+          ],
+          "expected_doc_ids": [
+            "faq_041"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.7843326926231384,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer matches the ground truth in almost every detail, including:\n1. Listing the exact same credit card types (Visa, Mastercard, American Express, Discover)\n2. Listing the exact same digital wallet payment methods (PayPal, Apple Pay, Google Pay, Amazon Pay)\n3. Mentioning gift cards and store credit as additional payment options\n\nThe agent even added some helpful supplementary information about saving payment methods and encryption, which goes beyond the ground truth but doesn't detract from the answer's accuracy. The core information fully aligns with the expected answer, making this a correct response to the customer's question."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.025854799999999997,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 796,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 233,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 796
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5310
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_005",
+      "question": "How do I track my order?",
+      "expected_answer": "Log into your account and view 'Order History'. Click on the order number to see detailed tracking information. You can also track using the tracking number sent to your email through the carrier's website.",
+      "agent_answer": "Based on our FAQ database, here's how you can track your order:\n\n**To track your order:**\n\n1. **Log into your account** and go to \"Order History\"\n2. **Click on your order number** to see detailed tracking information\n3. Alternatively, use the **tracking number** that was sent to your email - you can enter this on the carrier's website directly\n\n**Note:** If you ordered multiple items, they may ship in separate packages from different warehouses. Each package will have its own tracking number, which helps get your items to you faster.\n\n*(Source: FAQ doc_id: faq_015 - Order Tracking)*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_015",
+            "faq_019",
+            "faq_029"
+          ],
+          "expected_doc_ids": [
+            "faq_015"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.8548760414123535,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer comprehensively covers all the key points in the ground truth answer. It provides step-by-step instructions for tracking an order through the user's account, specifically mentioning:\n1. Logging into the account\n2. Going to \"Order History\"\n3. Clicking on the order number to see detailed tracking info\n4. Alternative method of using the tracking number from the email\n5. An additional helpful note about potential multiple shipments\n\nThe answer matches the expected solution in content and structure, providing clear, actionable guidance for the customer. The information is presented clearly and includes an extra helpful insight about potential multiple package shipments."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.027236050000000005,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 775,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 226,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 775
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5986
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_006",
+      "question": "What items cannot be returned?",
+      "expected_answer": "Personalized or custom-made products, perishable goods, intimate apparel, hazardous materials, digital downloads, and gift cards cannot be returned.",
+      "agent_answer": "I'll search our FAQ database to find information about items that cannot be returned.Based on our FAQ database, here are the items that **cannot be returned**:\n\n1. **Personalized or custom-made products**\n2. **Perishable goods**\n3. **Intimate apparel**\n4. **Hazardous materials**\n5. **Digital downloads**\n6. **Gift cards**\n\nThese items are excluded from our return policy due to their nature and cannot be accepted for return under any circumstances.\n\n*(Source: FAQ Document ID: faq_004 - \"Non-Returnable Items\")*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_004",
+            "faq_001",
+            "faq_009"
+          ],
+          "expected_doc_ids": [
+            "faq_004"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.7870152592658997,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer exactly matches the ground truth answer in both content and structure. The agent accurately lists all six non-returnable item categories (personalized/custom products, perishable goods, intimate apparel, hazardous materials, digital downloads, and gift cards) and provides a brief explanation for why these items cannot be returned. The response is clear, comprehensive, and directly addresses the customer's question about non-returnable items."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.022005749999999998,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 817,
+          "cache_read_input_tokens": 30430,
+          "output_tokens": 227,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 817
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5108
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_007",
+      "question": "How much does Premium membership cost?",
+      "expected_answer": "Premium membership costs $99 per year and includes free shipping on all orders, early access to sales, exclusive discounts, and priority customer service.",
+      "agent_answer": "Based on our FAQ database, **Premium membership costs $99/year**.\n\nThe Premium membership includes several benefits:\n- Free shipping on all orders (no minimum purchase requirement)\n- Early access to sales\n- Exclusive discounts\n- Priority customer service\n- Free return shipping on all items\n\nYou can cancel anytime and receive a prorated refund for unused months.\n\n**Source:** FAQ document faq_026 - Premium Membership",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_026",
+            "faq_013",
+            "faq_003"
+          ],
+          "expected_doc_ids": [
+            "faq_026"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.9342162013053894,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer matches the ground truth answer almost exactly. It provides the correct annual cost of $99, lists all the key membership benefits (free shipping, early access to sales, exclusive discounts, priority customer service), and even adds an extra helpful detail about cancellation and prorated refunds. The answer is comprehensive, accurate, and directly addresses the customer's question about Premium membership cost and its included benefits."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.022271899999999997,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 778,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 180,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 778
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5210
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_008",
+      "question": "Do you offer free shipping?",
+      "expected_answer": "Yes, orders over $50 qualify for free standard shipping within the US (excluding Alaska, Hawaii, and US territories). Premium members receive free shipping on all orders.",
+      "agent_answer": "I'll search our FAQ database to find information about our shipping policy.Yes, we do offer free shipping! Here's how it works:\n\n**Free Shipping Policy:**\n- Orders over **$50** qualify for free standard shipping within the US (excluding Alaska, Hawaii, and US territories)\n- **Premium members** receive free shipping on all orders with no minimum purchase requirement\n\nSo if your order total is $50 or more, you'll automatically get free standard shipping. If you're a Premium member, you get free shipping regardless of order amount!\n\n*Source: FAQ document faq_013 - \"Free Shipping Threshold\"*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_013",
+            "faq_003",
+            "faq_012"
+          ],
+          "expected_doc_ids": [
+            "faq_013"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.8385273218154907,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer matches the ground truth answer exactly in both content and structure. The key points are identical:\n1. Free shipping for orders over $50 within the US (with the same territorial exclusions)\n2. Premium members receive free shipping on all orders\nThe agent also added a helpful citation and formatting, which enhances the clarity of the response without changing the core information. The explanation is clear, concise, and directly addresses the customer's question about free shipping."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.02122575,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 805,
+          "cache_read_input_tokens": 30430,
+          "output_tokens": 221,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 805
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5341
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_009",
+      "question": "How do I initiate a return?",
+      "expected_answer": "Log into your account, go to 'Order History', find the order you want to return, click 'Return Items', select the items and reason for return, then print the prepaid return shipping label.",
+      "agent_answer": "I'll search our FAQ database for information about initiating returns.Based on our FAQ database, here's how to initiate a return:\n\n**To initiate a return:**\n\n1. **Log into your account** on our website\n2. Go to **'Order History'**\n3. Find the order you want to return\n4. Click **'Return Items'**\n5. Select the items you wish to return and provide a reason for the return\n6. **Print the prepaid return shipping label** that will be provided\n7. Drop off the package at any authorized carrier location\n\n**Additional information:**\n- Most items can be returned within **30 days of delivery** for a full refund\n- Items must be unused, in original packaging, and in the same condition as received\n- Refunds are processed within **5-7 business days** after we receive your return\n\n*(Source: FAQ documents faq_002 and faq_001)*\n\nIs there anything specific about the return process you'd like to know more about?",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_002",
+            "faq_001",
+            "faq_009"
+          ],
+          "expected_doc_ids": [
+            "faq_002"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.6602804064750671,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer fully matches the ground truth answer and provides additional helpful details. The key steps are identical:\n1. Log into account\n2. Go to Order History\n3. Find the specific order\n4. Click 'Return Items'\n5. Select items and return reason\n6. Print prepaid return shipping label\n\nThe agent even enhanced the answer with extra context about return timeframes and conditions, which provides more comprehensive customer guidance. The core return process steps are precisely aligned with the expected answer."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.027933850000000003,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 829,
+          "cache_read_input_tokens": 30432,
+          "output_tokens": 311,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 829
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 6470
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_010",
+      "question": "What happens if my payment is declined?",
+      "expected_answer": "Verify your billing information matches your bank records, check that you have sufficient funds, and contact your bank as they may have flagged the transaction. You can try a different payment method.",
+      "agent_answer": "I'll search our FAQ database to find information about declined payments.Based on our FAQ database, here's what happens if your payment is declined:\n\n**If your payment is declined:**\n\n1. **Verify your billing information** - Make sure it matches your bank records exactly\n2. **Check your available funds** - Ensure you have sufficient funds or credit available\n3. **Contact your bank** - They may have flagged the transaction for security reasons\n4. **Try a different payment method** - We accept multiple payment options including Visa, Mastercard, American Express, Discover, PayPal, Apple Pay, Google Pay, and Amazon Pay\n5. **Contact customer service** - If you continue to have issues, reach out to our support team for assistance\n\n**Source:** FAQ Document ID: faq_049 (Payment Declined)\n\nIs there anything specific about the declined payment that you'd like help with?",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_049",
+            "faq_041",
+            "faq_005"
+          ],
+          "expected_doc_ids": [
+            "faq_049"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.5748981833457947,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer closely matches the ground truth and provides comprehensive guidance for handling a declined payment. The key points are identical to the expected answer:\n- Verify billing information\n- Check sufficient funds\n- Contact bank about potential transaction flags\n- Try alternative payment methods\n\nAdditionally, the agent provides some extra helpful details like listing accepted payment methods and offering further customer service support. The core advice is accurate, actionable, and aligns with the expected response. The structured format and professional tone also enhance the helpfulness of the answer."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.0301301,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 820,
+          "cache_read_input_tokens": 30432,
+          "output_tokens": 281,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 820
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 6092
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_011",
+      "question": "Can I ship to a PO Box?",
+      "expected_answer": "Yes, we can ship to PO boxes using USPS only. Expedited shipping is not available for PO box addresses, and large or oversized items cannot be delivered to PO boxes.",
+      "agent_answer": "I'll search our FAQ database to find information about shipping to PO Boxes.Yes, we can ship to PO Boxes! However, there are some important limitations:\n\n- **USPS Only**: PO Box deliveries are only available via USPS shipping\n- **No Expedited Shipping**: You cannot use 2-day or overnight shipping options for PO Box addresses\n- **Size Restrictions**: Large or oversized items cannot be delivered to PO Boxes\n\nIf you need expedited delivery or are ordering large items, you'll need to use a physical street address instead.\n\n*Source: FAQ document faq_018 - PO Box Shipping*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_018",
+            "faq_028",
+            "faq_017"
+          ],
+          "expected_doc_ids": [
+            "faq_018"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.9239095449447632,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer comprehensively matches the expected ground truth answer. It covers all the key points:\n1. Confirmation that PO Box shipping is possible\n2. Specifies USPS as the shipping method\n3. Notes that expedited shipping is not available for PO Boxes\n4. Highlights that large/oversized items cannot be delivered to PO Boxes\n\nThe agent's response is clear, provides specific details, and even goes a step further by suggesting an alternative (using a street address) if the customer needs expedited delivery or has large items. The added reference to the source FAQ document also demonstrates thorough research and credibility."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.028884149999999997,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 805,
+          "cache_read_input_tokens": 30433,
+          "output_tokens": 235,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 805
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 8254
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_012",
+      "question": "What is covered by the product warranty?",
+      "expected_answer": "Most products come with a 1-year manufacturer warranty against defects. Electronics include a 2-year warranty. Warranty does not cover normal wear and tear or accidental damage.",
+      "agent_answer": "I'll search our FAQ database to find information about the product warranty coverage.Based on information from our FAQ database, here's what is covered by the product warranty:\n\n**Product Warranty Coverage:**\n\n- **Standard Products:** Most products come with a **1-year manufacturer warranty** against defects\n- **Electronics:** Include an extended **2-year warranty**\n- **Extended Warranty:** Additional extended warranty options are available for purchase at checkout\n\n**What is NOT covered:**\n- Normal wear and tear\n- Accidental damage\n\nIf you receive a damaged or defective item, you should contact our customer service within 48 hours of delivery with photos of the damage, and we'll provide a prepaid return label and issue a full refund or replacement.\n\n*(Source: FAQ document faq_034 - Product Warranty)*\n\nIs there anything specific about the warranty you'd like to know more about?",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_034",
+            "faq_008",
+            "faq_035"
+          ],
+          "expected_doc_ids": [
+            "faq_034"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.686765193939209,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer fully matches the ground truth answer in all key aspects:\n- 1-year manufacturer warranty for most products ✓\n- 2-year warranty for electronics ✓\n- Exclusion of normal wear and tear from warranty ✓\n- Exclusion of accidental damage from warranty ✓\n\nAdditionally, the agent provides helpful supplemental information about contacting customer service and obtaining a replacement or refund, which adds value to the response. The answer is structured clearly, cites a source, and directly addresses the customer's question about warranty coverage."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.0286301,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 804,
+          "cache_read_input_tokens": 30432,
+          "output_tokens": 278,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 804
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5995
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_013",
+      "question": "When will I be charged for my order?",
+      "expected_answer": "Your payment method is authorized at checkout but only charged when your order ships. For orders with multiple shipments, you'll be charged separately for each package as it ships.",
+      "agent_answer": "I'll search our FAQ database to find information about when orders are charged.Based on our FAQ database, here's when you'll be charged for your order:\n\n**Your payment method is authorized at checkout but only charged when your order ships.** \n\nAdditional details:\n- **Multiple shipments**: If your order contains multiple items that ship separately, you'll be charged separately for each package as it ships\n- **Preorders**: For preordered items, you'll be charged on the release date\n- **Backorder items**: You won't be charged until backordered items actually ship\n\nSo in summary, while we authorize your payment when you place the order, the actual charge doesn't occur until your items are on their way to you.\n\n*Source: FAQ Document faq_043 - \"When is Payment Charged\"*",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_043",
+            "faq_050",
+            "faq_036"
+          ],
+          "expected_doc_ids": [
+            "faq_043"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.773137629032135,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer fully captures the key points of the ground truth response. Specifically:\n1. Payment is authorized at checkout\n2. Actual charge occurs only when order ships\n3. For orders with multiple shipments, charges will be made separately for each package\n4. The explanation is clear, provides additional context, and matches the core message of the expected answer\n5. The agent even added some helpful extra details about preorders and backorder items without contradicting the main message\nThe answer is comprehensive, accurate, and directly addresses the customer's question about order charging."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.0289079,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 818,
+          "cache_read_input_tokens": 30433,
+          "output_tokens": 270,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 818
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 6789
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_014",
+      "question": "How do I delete my account?",
+      "expected_answer": "Go to 'Account Settings' and click 'Delete Account'. This action is permanent and cannot be undone. All order history, saved addresses, and payment methods will be removed.",
+      "agent_answer": "Based on our FAQ database, here's how to delete your account:\n\nTo delete your account:\n1. Go to **Account Settings**\n2. Click **Delete Account**\n\n**Important things to note:**\n- This action is **permanent and cannot be undone**\n- All your order history, saved addresses, and payment methods will be removed\n- You must complete or cancel any pending orders before you can delete your account\n\n(Source: FAQ document faq_025 - Delete Account)\n\nIs there anything else you'd like to know about account deletion?",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_025",
+            "faq_022",
+            "faq_030"
+          ],
+          "expected_doc_ids": [
+            "faq_025"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.6974630355834961,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer closely matches the expected ground truth answer. It provides the same step-by-step instructions (go to Account Settings, click Delete Account), includes the critical warnings about the permanence of the action, and specifies what will be removed (order history, saved addresses, payment methods). The agent even added a helpful note about completing or canceling pending orders, which provides additional useful context. While the wording is slightly different from the ground truth, the key information is accurately conveyed."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.0250048,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 792,
+          "cache_read_input_tokens": 30431,
+          "output_tokens": 203,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 792
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5315
+      },
+      "error": null
+    },
+    {
+      "test_id": "test_015",
+      "question": "Do you ship internationally?",
+      "expected_answer": "Yes, we ship to over 100 countries worldwide. International shipping costs vary by destination and package weight. Delivery times range from 7-21 business days. Customers are responsible for customs duties, taxes, or fees.",
+      "agent_answer": "Yes! We do ship internationally. According to our FAQ (doc_id: faq_014), we ship to over 100 countries worldwide. \n\nHere are the key details about international shipping:\n- **Delivery time**: 7-21 business days\n- **Shipping costs**: Vary based on your destination and package weight\n- **Important note**: You'll be responsible for any customs duties, taxes, or fees that your country may impose\n\nIf you have a specific country in mind, I can help you find more detailed information about shipping to that location!",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_014",
+            "faq_007",
+            "faq_012"
+          ],
+          "expected_doc_ids": [
+            "faq_014"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.906552791595459,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer fully covers all the key points from the expected answer:\n1. Confirmed international shipping to over 100 countries\n2. Specified delivery time range of 7-21 business days\n3. Noted that shipping costs vary by destination and package weight\n4. Explicitly mentioned customer responsibility for customs duties, taxes, and fees\n\nThe answer is clear, comprehensive, and accurately reflects the ground truth. It even goes a step further by offering additional personalized assistance, which adds value to the customer interaction. The agent used a source citation (FAQ document) and structured the information in a clear, readable format."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "verbose",
+        "total_cost_usd": 0.026112950000000003,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 793,
+          "cache_read_input_tokens": 30429,
+          "output_tokens": 205,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 793
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 5697
       },
       "error": null
     }

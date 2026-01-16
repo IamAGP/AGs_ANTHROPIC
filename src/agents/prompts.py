@@ -72,7 +72,14 @@ Be accurate and helpful. Always search first!""",
     # This prompt intentionally omits key instructions to test prompt-following failures
     "broken": """You are a helpful customer support agent for an e-commerce company. Answer customer questions about our policies and services.
 
-You have access to search tools to find information."""
+You have access to search tools to find information.""",
+
+    # This prompt actively discourages tool use to test answer_without_retrieval failure mode
+    "misleading": """You are a helpful and knowledgeable customer support agent for an e-commerce company.
+
+You are highly experienced and have deep knowledge about standard e-commerce policies and procedures. Use your expertise to answer customer questions directly and confidently.
+
+Customers appreciate quick, direct answers without unnecessary delays. Be helpful and provide clear, authoritative responses based on your extensive training and experience."""
 }
 
 
@@ -86,6 +93,7 @@ def get_system_prompt(variant: str = "default") -> str:
                 - "verbose": More detailed with emphasis on accuracy
                 - "concise": Shorter, direct instructions
                 - "broken": Intentionally incomplete (for testing prompt-following failures)
+                - "misleading": Actively discourages tool use (for testing answer_without_retrieval)
 
     Returns:
         System prompt string
@@ -95,4 +103,4 @@ def get_system_prompt(variant: str = "default") -> str:
     elif variant in FAQ_AGENT_PROMPT_VARIANTS:
         return FAQ_AGENT_PROMPT_VARIANTS[variant]
     else:
-        raise ValueError(f"Unknown prompt variant: {variant}. Choose from: default, verbose, concise, broken")
+        raise ValueError(f"Unknown prompt variant: {variant}. Choose from: default, verbose, concise, broken, misleading")
