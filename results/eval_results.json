@@ -1,0 +1,120 @@
+{
+  "config": {
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_variant": "default",
+    "test_dataset": "data/eval_dataset.json",
+    "num_questions": 1
+  },
+  "metrics": {
+    "total_questions": 1,
+    "errors": 0,
+    "valid_results": 1,
+    "accuracy": 1.0,
+    "correct_answers": 1,
+    "failure_mode_breakdown": {
+      "success": {
+        "count": 1,
+        "percentage": 100.0
+      },
+      "retrieval_failure": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "prompt_following_failure": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "mixed_failure": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "no_search_attempted": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "answer_without_retrieval": {
+        "count": 0,
+        "percentage": 0.0
+      }
+    },
+    "retrieval_metrics": {
+      "avg_precision": 0.3333333333333333,
+      "avg_recall": 1.0
+    },
+    "context_usage_metrics": {
+      "avg_groundedness": 1.0
+    },
+    "semantic_similarity": {
+      "average": 0.8115816116333008
+    },
+    "total_time_seconds": 15.545793056488037,
+    "avg_time_per_question": 15.545793056488037
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_001",
+      "question": "What is your return policy?",
+      "expected_answer": "Most items can be returned within 30 days of delivery for a full refund. Items must be unused, in original packaging, and in the same condition as received.",
+      "agent_answer": "According to our Return Policy Overview (faq_001), you can return most items within 30 days of delivery for a full refund. Items must be unused, in original packaging, and in the same condition as received. Refunds are processed within 5-7 business days after we receive your return.\n\nTo initiate a return, simply log into your account, go to 'Order History', find the order you want to return, click 'Return Items', select the items and reason for return, then print the prepaid return shipping label. You can drop off the package at any authorized carrier location.\n\nIs there anything specific about returns you'd like to know more about?",
+      "answerable": true,
+      "grading": {
+        "retrieval": {
+          "called_search_tool": true,
+          "num_retrieved": 3,
+          "num_expected": 1,
+          "retrieved_doc_ids": [
+            "faq_001",
+            "faq_002",
+            "faq_006"
+          ],
+          "expected_doc_ids": [
+            "faq_001"
+          ],
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "retrieval_success": true
+        },
+        "context_usage": {
+          "context_present": true,
+          "context_used_correctly": true,
+          "groundedness_score": 1.0
+        },
+        "answer_quality": {
+          "correct": true,
+          "exact_match": false,
+          "semantic_similarity": 0.8115816116333008,
+          "llm_judge_correct": true,
+          "llm_judge_reasoning": "The agent's answer includes all the key elements of the expected answer:\n1. Returns possible within 30 days of delivery\n2. Items must be unused\n3. Items must be in original packaging\n4. Items must be in the same condition as received\n\nAdditionally, the agent provides extra helpful information about the return process, such as how to initiate a return and refund processing time. The core return policy details match the ground truth exactly, making this a comprehensive and accurate response to the customer's question."
+        }
+      },
+      "failure_analysis": {
+        "failure_mode": "success",
+        "reasoning": "Agent provided correct answer using retrieved information from FAQ database",
+        "actionable_fix": null
+      },
+      "metadata": {
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_variant": "default",
+        "total_cost_usd": 0.055697699999999996,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 3402,
+          "cache_read_input_tokens": 28484,
+          "output_tokens": 229,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 3402
+          }
+        },
+        "turn_count": 2,
+        "duration_ms": 7055
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,893 @@
+2026-01-14 17:20:51,758 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 17:20:51,758 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 17:20:55,835 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 17:20:55,835 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 17:20:55,835 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 17:20:55,835 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 17:20:55,835 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 17:20:55,835 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 17:20:56,743 - src.agents.faq_agent - ERROR - [AGENT] ERROR in ask(): unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 73, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/__init__.py", line 231, in dumps
+    |     return _default_encoder.encode(obj)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 199, in encode
+    |     chunks = self.iterencode(o, _one_shot=True)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 257, in iterencode
+    |     return _iterencode(o, 0)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 179, in default
+    |     raise TypeError(f'Object of type {o.__class__.__name__} '
+    | TypeError: Object of type SdkMcpTool is not JSON serializable
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 17:20:56,747 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'What is your return policy?': unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 127, in _evaluate_single_question
+  |     agent_response = await self.agent.ask(question)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 73, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/__init__.py", line 231, in dumps
+    |     return _default_encoder.encode(obj)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 199, in encode
+    |     chunks = self.iterencode(o, _one_shot=True)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 257, in iterencode
+    |     return _iterencode(o, 0)
+    |   File "/Users/adithyagiridharan/.local/share/uv/python/cpython-3.10.18-macos-aarch64-none/lib/python3.10/json/encoder.py", line 179, in default
+    |     raise TypeError(f'Object of type {o.__class__.__name__} '
+    | TypeError: Object of type SdkMcpTool is not JSON serializable
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 17:27:58,500 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 17:27:58,500 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 17:28:02,947 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 17:28:02,947 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 17:28:02,947 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 17:28:02,947 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 17:28:02,947 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 17:28:02,947 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 17:28:03,862 - src.agents.faq_agent - ERROR - [AGENT] ERROR in ask(): unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 83, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 17:28:03,866 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'What is your return policy?': unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 127, in _evaluate_single_question
+  |     agent_response = await self.agent.ask(question)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 83, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 17:51:53,523 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 17:51:53,523 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 17:51:59,637 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 17:51:59,637 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 17:51:59,637 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 17:51:59,638 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 17:51:59,638 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 17:51:59,638 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 17:52:00,572 - src.agents.faq_agent - ERROR - [AGENT] ERROR in ask(): unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 83, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 17:52:00,581 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'What is your return policy?': unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 127, in _evaluate_single_question
+  |     agent_response = await self.agent.ask(question)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/agents/faq_agent.py", line 83, in ask
+  |     async for message in query(prompt=question, options=options):
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/query.py", line 123, in query
+  |     async for message in client.process_query(
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/client.py", line 124, in process_query
+  |     await query.close()
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 609, in close
+  |     await self._tg.__aexit__(None, None, None)
+  |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 325, in _handle_control_request
+    |     await self.transport.write(json.dumps(success_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/query.py", line 337, in _handle_control_request
+    |     await self.transport.write(json.dumps(error_response) + "\n")
+    |   File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_internal/transport/subprocess_cli.py", line 529, in write
+    |     raise CLIConnectionError("ProcessTransport is not ready for writing")
+    | claude_agent_sdk._errors.CLIConnectionError: ProcessTransport is not ready for writing
+    +------------------------------------
+2026-01-14 21:59:14,285 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 21:59:14,286 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 21:59:18,937 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 21:59:18,937 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 21:59:18,937 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 21:59:18,937 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 21:59:18,937 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 21:59:18,938 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 21:59:19,971 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 21:59:23,050 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 21:59:23,056 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 21:59:23,056 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 21:59:23,802 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 21:59:23,802 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 21:59:23,819 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 21:59:27,871 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 21:59:27,872 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 21:59:28,855 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 21:59:28,856 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 21:59:28,856 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 21:59:32,705 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:07:08,478 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:07:08,478 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:07:13,649 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:07:13,649 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:07:13,649 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:07:13,649 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:07:13,649 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:07:13,650 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:07:14,698 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:07:17,962 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:17,967 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:07:17,967 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:07:18,106 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:07:18,106 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:07:18,123 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:07:21,898 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:21,899 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:07:23,102 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:07:23,103 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:07:23,103 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:07:26,545 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:07:26,562 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'What is your return policy?': Invalid format specifier
+Traceback (most recent call last):
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 172, in _evaluate_single_question
+    failure_analysis = analyze_trajectory_for_failure(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 259, in analyze_trajectory_for_failure
+    report = analyzer.generate_failure_report(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 176, in generate_failure_report
+    report = f"""
+ValueError: Invalid format specifier
+2026-01-14 22:07:26,563 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I reset my password?'
+2026-01-14 22:07:26,563 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:07:26,564 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I reset my password?'
+2026-01-14 22:07:26,564 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:07:26,564 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:07:26,564 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:07:27,193 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:07:30,070 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:30,075 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'reset password', 'top_k': 3}
+2026-01-14 22:07:30,075 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'reset password', top_k: 3
+2026-01-14 22:07:30,113 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:07:30,113 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:07:30,130 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:07:34,316 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:34,318 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:07:35,810 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:07:35,810 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:07:35,810 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:07:39,651 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:07:39,654 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'How do I reset my password?': Invalid format specifier
+Traceback (most recent call last):
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 172, in _evaluate_single_question
+    failure_analysis = analyze_trajectory_for_failure(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 259, in analyze_trajectory_for_failure
+    report = analyzer.generate_failure_report(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 176, in generate_failure_report
+    report = f"""
+ValueError: Invalid format specifier
+2026-01-14 22:07:39,655 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How long does standard shipping take?'
+2026-01-14 22:07:39,655 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:07:39,655 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How long does standard shipping take?'
+2026-01-14 22:07:39,655 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:07:39,655 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:07:39,655 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:07:40,294 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:07:43,478 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:43,483 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'standard shipping delivery time', 'top_k': 3}
+2026-01-14 22:07:43,483 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'standard shipping delivery time', top_k: 3
+2026-01-14 22:07:43,973 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:07:43,973 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:07:43,990 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:07:46,812 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:46,813 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:07:47,816 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:07:47,817 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:07:47,817 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:07:51,120 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:07:51,124 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'How long does standard shipping take?': Invalid format specifier
+Traceback (most recent call last):
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 172, in _evaluate_single_question
+    failure_analysis = analyze_trajectory_for_failure(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 259, in analyze_trajectory_for_failure
+    report = analyzer.generate_failure_report(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 176, in generate_failure_report
+    report = f"""
+ValueError: Invalid format specifier
+2026-01-14 22:07:51,125 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What payment methods do you accept?'
+2026-01-14 22:07:51,125 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:07:51,125 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What payment methods do you accept?'
+2026-01-14 22:07:51,125 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:07:51,125 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:07:51,126 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:07:51,764 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:07:54,950 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:54,956 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'payment methods accepted', 'top_k': 3}
+2026-01-14 22:07:54,956 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'payment methods accepted', top_k: 3
+2026-01-14 22:07:55,447 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:07:55,447 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:07:55,465 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:07:59,526 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:07:59,578 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:08:01,296 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:08:01,297 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:08:01,297 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:08:04,331 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:08:04,335 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'What payment methods do you accept?': Invalid format specifier
+Traceback (most recent call last):
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 172, in _evaluate_single_question
+    failure_analysis = analyze_trajectory_for_failure(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 259, in analyze_trajectory_for_failure
+    report = analyzer.generate_failure_report(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 176, in generate_failure_report
+    report = f"""
+ValueError: Invalid format specifier
+2026-01-14 22:08:04,336 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I track my order?'
+2026-01-14 22:08:04,336 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:08:04,336 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I track my order?'
+2026-01-14 22:08:04,336 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:08:04,336 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:08:04,337 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:08:04,962 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:08:08,066 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:08:08,070 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'track my order', 'top_k': 3}
+2026-01-14 22:08:08,070 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'track my order', top_k: 3
+2026-01-14 22:08:08,109 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:08:08,110 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:08:08,127 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:08:12,587 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:08:12,588 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:08:13,800 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:08:13,801 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:08:13,801 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:08:17,027 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:08:17,031 - src.eval.eval_runner - ERROR - [EVAL] Error evaluating question 'How do I track my order?': Invalid format specifier
+Traceback (most recent call last):
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/eval_runner.py", line 172, in _evaluate_single_question
+    failure_analysis = analyze_trajectory_for_failure(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 259, in analyze_trajectory_for_failure
+    report = analyzer.generate_failure_report(
+  File "/Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/src/eval/trajectory_analyzer.py", line 176, in generate_failure_report
+    report = f"""
+ValueError: Invalid format specifier
+2026-01-14 22:09:57,087 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:09:57,087 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:10:02,471 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:10:02,471 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:10:02,471 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:10:02,471 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:10:02,471 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:10:02,472 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:10:03,473 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:10:06,441 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:06,447 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:10:06,448 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:10:06,540 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:10:06,540 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:10:06,558 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:10:10,849 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:10,851 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:10:11,877 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:10:11,877 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:10:11,877 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:10:15,167 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:10:15,183 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I reset my password?'
+2026-01-14 22:10:15,183 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:10:15,183 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I reset my password?'
+2026-01-14 22:10:15,183 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:10:15,183 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:10:15,184 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:10:15,790 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:10:18,918 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:18,924 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'reset password', 'top_k': 3}
+2026-01-14 22:10:18,924 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'reset password', top_k: 3
+2026-01-14 22:10:18,963 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:10:18,964 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:10:18,981 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:10:22,580 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:22,585 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:10:23,735 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:10:23,735 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:10:23,735 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:10:27,078 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:10:27,083 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How long does standard shipping take?'
+2026-01-14 22:10:27,083 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:10:27,083 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How long does standard shipping take?'
+2026-01-14 22:10:27,083 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:10:27,083 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:10:27,084 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:10:27,729 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:10:30,973 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:30,977 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'standard shipping time delivery', 'top_k': 3}
+2026-01-14 22:10:30,977 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'standard shipping time delivery', top_k: 3
+2026-01-14 22:10:31,043 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:10:31,043 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:10:31,061 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:10:33,852 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:33,863 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:10:34,913 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:10:34,913 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:10:34,913 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:10:37,759 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:10:37,762 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What payment methods do you accept?'
+2026-01-14 22:10:37,762 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:10:37,762 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What payment methods do you accept?'
+2026-01-14 22:10:37,762 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:10:37,763 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:10:37,763 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:10:38,407 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:10:41,647 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:41,650 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'payment methods accepted', 'top_k': 3}
+2026-01-14 22:10:41,650 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'payment methods accepted', top_k: 3
+2026-01-14 22:10:41,716 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:10:41,716 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:10:41,734 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:10:45,402 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:45,403 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:10:46,481 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:10:46,482 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:10:46,482 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:10:49,198 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:10:49,203 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I track my order?'
+2026-01-14 22:10:49,203 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:10:49,203 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I track my order?'
+2026-01-14 22:10:49,203 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:10:49,203 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:10:49,204 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:10:49,846 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:10:53,092 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:53,154 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'track my order', 'top_k': 3}
+2026-01-14 22:10:53,154 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'track my order', top_k: 3
+2026-01-14 22:10:53,191 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:10:53,192 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:10:53,209 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:10:57,364 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:10:57,365 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:10:58,581 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:10:58,581 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:10:58,581 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:11:02,201 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:14:35,522 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:14:35,522 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:14:40,862 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:14:40,863 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:14:40,863 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:14:40,863 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:14:40,863 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:14:40,863 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:14:41,508 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:14:44,893 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:14:45,052 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:14:45,052 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:14:45,146 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:14:45,146 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:14:45,165 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:14:48,717 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:14:48,725 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:14:49,820 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:14:49,820 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:14:49,820 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:14:54,654 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:14:54,672 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I reset my password?'
+2026-01-14 22:14:54,672 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:14:54,672 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I reset my password?'
+2026-01-14 22:14:54,672 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:14:54,672 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:14:54,673 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:14:55,299 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:14:58,746 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:14:58,911 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'reset password', 'top_k': 3}
+2026-01-14 22:14:58,911 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'reset password', top_k: 3
+2026-01-14 22:14:58,954 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:14:58,954 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:14:58,973 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:15:02,514 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:02,515 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:15:03,609 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:15:03,610 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:15:03,610 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:15:06,735 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:15:06,740 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How long does standard shipping take?'
+2026-01-14 22:15:06,740 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:15:06,740 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How long does standard shipping take?'
+2026-01-14 22:15:06,740 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:15:06,740 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:15:06,741 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:15:07,375 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:15:10,557 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:10,561 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'standard shipping delivery time', 'top_k': 3}
+2026-01-14 22:15:10,561 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'standard shipping delivery time', top_k: 3
+2026-01-14 22:15:10,622 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:15:10,622 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:15:10,640 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:15:13,565 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:13,601 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:15:15,024 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:15:15,024 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:15:15,024 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:15:17,246 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:15:17,250 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What payment methods do you accept?'
+2026-01-14 22:15:17,250 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:15:17,250 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What payment methods do you accept?'
+2026-01-14 22:15:17,250 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:15:17,251 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:15:17,251 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:15:17,897 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:15:20,998 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:21,073 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'payment methods accepted', 'top_k': 3}
+2026-01-14 22:15:21,073 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'payment methods accepted', top_k: 3
+2026-01-14 22:15:21,141 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:15:21,141 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:15:21,158 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:15:24,729 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:24,972 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:15:26,734 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:15:26,734 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:15:26,735 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:15:30,009 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:15:30,014 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I track my order?'
+2026-01-14 22:15:30,014 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:15:30,014 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I track my order?'
+2026-01-14 22:15:30,014 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:15:30,014 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:15:30,014 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:15:30,656 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:15:33,642 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:33,647 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'track my order', 'top_k': 3}
+2026-01-14 22:15:33,647 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'track my order', top_k: 3
+2026-01-14 22:15:33,686 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:15:33,686 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:15:33,704 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:15:38,917 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:15:38,971 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:15:40,061 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:15:40,061 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:15:40,061 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:15:43,703 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:18:47,890 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:18:47,890 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:18:52,281 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:18:52,281 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:18:52,281 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:18:52,281 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:18:52,282 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:18:52,282 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:18:53,264 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:18:55,945 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:18:55,950 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:18:55,951 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:18:56,050 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:18:56,050 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:18:56,068 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:18:58,936 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:18:58,937 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:18:59,945 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 3 steps
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:18:59,945 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:19:03,592 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:26:30,954 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:26:30,954 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:26:35,194 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:26:35,194 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:26:35,194 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:26:35,194 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:26:35,194 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:26:35,195 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:26:36,205 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:26:39,994 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:26:39,999 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:26:39,999 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:26:40,156 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:26:40,156 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:26:40,174 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:26:43,338 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:26:43,339 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:26:44,636 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:26:44,636 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:26:44,636 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:26:44,636 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:26:44,637 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:26:44,637 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:26:45,730 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:26:46,755 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:26:50,847 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:27:54,496 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-14 22:27:54,497 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-14 22:27:59,040 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-14 22:27:59,040 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:27:59,040 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-14 22:27:59,040 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:27:59,040 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:27:59,040 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:28:00,022 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:28:02,369 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:02,378 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-14 22:28:02,378 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-14 22:28:02,471 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:28:02,471 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:28:02,489 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:28:05,534 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:05,535 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:06,647 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:28:06,648 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:28:06,648 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:07,958 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:08,979 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:12,971 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:12,972 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I reset my password?'
+2026-01-14 22:28:12,973 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:28:12,973 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I reset my password?'
+2026-01-14 22:28:12,973 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:28:12,973 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:28:12,973 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:28:13,637 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:28:15,759 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:15,805 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'reset password', 'top_k': 3}
+2026-01-14 22:28:15,805 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'reset password', top_k: 3
+2026-01-14 22:28:15,845 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:28:15,845 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:28:15,863 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:28:18,596 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:18,608 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:28:19,782 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:28:19,783 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:28:19,783 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:20,947 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:22,289 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:25,260 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:25,266 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How long does standard shipping take?'
+2026-01-14 22:28:25,267 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:28:25,267 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How long does standard shipping take?'
+2026-01-14 22:28:25,267 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:28:25,267 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:28:25,268 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:28:26,054 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:28:28,539 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:28,542 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'standard shipping delivery time', 'top_k': 3}
+2026-01-14 22:28:28,542 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'standard shipping delivery time', top_k: 3
+2026-01-14 22:28:28,634 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:28:28,634 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:28:28,653 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:28:30,721 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:30,983 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:32,161 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:28:32,161 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:28:32,162 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:33,351 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:34,475 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:36,957 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:36,961 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What payment methods do you accept?'
+2026-01-14 22:28:36,961 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:28:36,961 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What payment methods do you accept?'
+2026-01-14 22:28:36,961 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:28:36,961 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:28:36,962 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:28:37,604 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:28:40,377 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:40,382 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'payment methods accepted', 'top_k': 3}
+2026-01-14 22:28:40,382 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'payment methods accepted', top_k: 3
+2026-01-14 22:28:40,496 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:28:40,496 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:28:40,513 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:28:43,084 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:43,086 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:28:44,399 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:28:44,399 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:28:44,400 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:28:44,400 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:45,536 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:46,516 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:49,532 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:49,535 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'How do I track my order?'
+2026-01-14 22:28:49,535 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-14 22:28:49,535 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'How do I track my order?'
+2026-01-14 22:28:49,535 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-14 22:28:49,535 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-14 22:28:49,536 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-14 22:28:50,160 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-14 22:28:52,453 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:52,459 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'track my order', 'top_k': 3}
+2026-01-14 22:28:52,459 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'track my order', top_k: 3
+2026-01-14 22:28:52,495 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-14 22:28:52,495 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-14 22:28:52,514 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-14 22:28:56,080 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-14 22:28:56,148 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-14 22:28:57,116 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-14 22:28:57,117 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-14 22:28:57,117 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-14 22:28:58,233 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:28:59,462 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-14 22:29:02,942 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-15 22:59:21,656 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-15 22:59:21,656 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-15 23:00:54,088 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2026-01-15 23:00:54,088 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-15 23:01:02,353 - httpx - INFO - HTTP Request: GET https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz "HTTP/1.1 200 OK"
+2026-01-15 23:01:32,067 - src.eval.eval_runner - INFO - [EVAL] Evaluating question: 'What is your return policy?'
+2026-01-15 23:01:32,068 - src.eval.eval_runner - INFO - [EVAL] Calling agent.ask()
+2026-01-15 23:01:32,068 - src.agents.faq_agent - INFO - [AGENT] ask() called with question: 'What is your return policy?'
+2026-01-15 23:01:32,068 - src.agents.faq_agent - INFO - [AGENT] Creating ClaudeAgentOptions with MCP server
+2026-01-15 23:01:32,068 - src.agents.faq_agent - INFO - [AGENT] Starting query() call
+2026-01-15 23:01:32,068 - claude_agent_sdk._internal.transport.subprocess_cli - INFO - Using bundled Claude Code CLI: /Users/adithyagiridharan/Desktop/PythonProjects/Anthropic/.venv/lib/python3.10/site-packages/claude_agent_sdk/_bundled/claude
+2026-01-15 23:01:33,062 - src.agents.faq_agent - INFO - [AGENT] Received message type: SystemMessage
+2026-01-15 23:01:36,201 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-15 23:01:36,302 - src.tools.retrieval_tools - INFO - [TOOL] search_faq called with args: {'query': 'return policy', 'top_k': 3}
+2026-01-15 23:01:36,303 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - query: 'return policy', top_k: 3
+2026-01-15 23:01:36,433 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - found 3 results
+2026-01-15 23:01:36,433 - src.tools.retrieval_tools - INFO - [TOOL] search_faq - returning results
+2026-01-15 23:01:36,450 - src.agents.faq_agent - INFO - [AGENT] Received message type: UserMessage
+2026-01-15 23:01:40,084 - src.agents.faq_agent - INFO - [AGENT] Received message type: AssistantMessage
+2026-01-15 23:01:40,109 - src.agents.faq_agent - INFO - [AGENT] Received message type: ResultMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Extracting trajectory from 5 messages
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Processing message 0: type=SystemMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Processing message 1: type=AssistantMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Processing message 2: type=UserMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Processing message 3: type=AssistantMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Added step with 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Processing message 4: type=ResultMessage
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Added step with 0 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Successfully completed ask()
+2026-01-15 23:01:41,186 - src.eval.eval_runner - INFO - [EVAL] Agent returned response
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] analyze_trajectory: processing 5 steps
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_use
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Content block type: tool_result
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Step has 1 content blocks
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Content block type: text
+2026-01-15 23:01:41,186 - src.agents.faq_agent - INFO - [AGENT] Step has 0 content blocks
+2026-01-15 23:01:42,804 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-15 23:01:44,185 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-15 23:01:47,612 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"

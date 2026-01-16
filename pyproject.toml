@@ -1,0 +1,16 @@
+[project]
+name = "anthropic-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.75.0",
+    "chromadb>=1.4.1",
+    "claude-agent-sdk>=0.1.19",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "python-dotenv>=1.2.1",
+    "scikit-learn>=1.7.2",
+    "sentence-transformers>=5.2.0",
+]

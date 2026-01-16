@@ -1,0 +1,351 @@
+"""
+Generate synthetic FAQ documents for e-commerce customer support.
+"""
+import json
+from pathlib import Path
+from typing import List, Dict
+
+def generate_faq_corpus() -> List[Dict[str, str]]:
+    """Generate synthetic FAQ documents across 5 categories."""
+
+    faqs = [
+        # Returns & Refunds (10 docs)
+        {
+            "id": "faq_001",
+            "category": "returns_refunds",
+            "title": "Return Policy Overview",
+            "content": "Our return policy allows you to return most items within 30 days of delivery for a full refund. Items must be unused, in original packaging, and in the same condition as received. Refunds are processed within 5-7 business days after we receive your return."
+        },
+        {
+            "id": "faq_002",
+            "category": "returns_refunds",
+            "title": "How to Initiate a Return",
+            "content": "To initiate a return, log into your account and go to 'Order History'. Find the order you want to return, click 'Return Items', select the items and reason for return, then print the prepaid return shipping label. Drop off the package at any authorized carrier location."
+        },
+        {
+            "id": "faq_003",
+            "category": "returns_refunds",
+            "title": "Return Shipping Costs",
+            "content": "Return shipping is free for defective or incorrect items. For other returns, a $6.99 return shipping fee will be deducted from your refund. Premium members receive free return shipping on all items."
+        },
+        {
+            "id": "faq_004",
+            "category": "returns_refunds",
+            "title": "Non-Returnable Items",
+            "content": "The following items cannot be returned: personalized or custom-made products, perishable goods, intimate apparel, hazardous materials, and digital downloads. Gift cards are also non-returnable."
+        },
+        {
+            "id": "faq_005",
+            "category": "returns_refunds",
+            "title": "Refund Processing Time",
+            "content": "Once we receive your returned item, it takes 2-3 business days to inspect it. After approval, refunds are issued to your original payment method within 5-7 business days. Your bank may take an additional 3-5 days to post the credit to your account."
+        },
+        {
+            "id": "faq_006",
+            "category": "returns_refunds",
+            "title": "Exchange Policy",
+            "content": "We do not offer direct exchanges. To exchange an item, you must return the original item for a refund and place a new order for the desired item. This ensures you get the item you want as quickly as possible."
+        },
+        {
+            "id": "faq_007",
+            "category": "returns_refunds",
+            "title": "International Returns",
+            "content": "International returns are accepted within 30 days. However, customers are responsible for return shipping costs for international orders. We recommend using a trackable shipping service as we cannot guarantee receipt of returned items."
+        },
+        {
+            "id": "faq_008",
+            "category": "returns_refunds",
+            "title": "Damaged or Defective Items",
+            "content": "If you receive a damaged or defective item, contact our customer service within 48 hours of delivery. We will provide a prepaid return label and issue a full refund or replacement. Please include photos of the damage when submitting your claim."
+        },
+        {
+            "id": "faq_009",
+            "category": "returns_refunds",
+            "title": "Gift Returns",
+            "content": "Gift recipients can return items for store credit without needing the original purchase receipt. The gift giver will not be notified of the return. To return a gift, contact customer service with your order number."
+        },
+        {
+            "id": "faq_010",
+            "category": "returns_refunds",
+            "title": "Partial Refunds",
+            "content": "Partial refunds may be issued for items returned after 30 days but within 60 days (50% refund), items not in original condition, or items missing parts not due to our error. Clearance items receive store credit only."
+        },
+
+        # Shipping & Tracking (10 docs)
+        {
+            "id": "faq_011",
+            "category": "shipping_tracking",
+            "title": "Standard Shipping Times",
+            "content": "Standard shipping takes 5-7 business days for delivery within the continental US. Orders are processed within 1-2 business days. You will receive a tracking number via email once your order ships."
+        },
+        {
+            "id": "faq_012",
+            "category": "shipping_tracking",
+            "title": "Expedited Shipping Options",
+            "content": "We offer 2-day express shipping ($12.99) and next-day overnight shipping ($24.99). Orders must be placed before 2 PM EST to qualify for same-day processing. Expedited shipping is not available for oversized items or international orders."
+        },
+        {
+            "id": "faq_013",
+            "category": "shipping_tracking",
+            "title": "Free Shipping Threshold",
+            "content": "Orders over $50 qualify for free standard shipping within the US. This excludes Alaska, Hawaii, and US territories. Premium members receive free shipping on all orders with no minimum purchase requirement."
+        },
+        {
+            "id": "faq_014",
+            "category": "shipping_tracking",
+            "title": "International Shipping",
+            "content": "We ship to over 100 countries worldwide. International shipping costs vary by destination and package weight. Delivery times range from 7-21 business days. Customers are responsible for any customs duties, taxes, or fees imposed by their country."
+        },
+        {
+            "id": "faq_015",
+            "category": "shipping_tracking",
+            "title": "Order Tracking",
+            "content": "Track your order by logging into your account and viewing 'Order History'. Click on the order number to see detailed tracking information. You can also track using the tracking number sent to your email through the carrier's website."
+        },
+        {
+            "id": "faq_016",
+            "category": "shipping_tracking",
+            "title": "Package Delivery Issues",
+            "content": "If your package shows as delivered but you haven't received it, first check with neighbors or building management. Wait 24 hours as carriers sometimes mark packages delivered early. If still missing, contact us within 7 days to file a claim."
+        },
+        {
+            "id": "faq_017",
+            "category": "shipping_tracking",
+            "title": "Change Shipping Address",
+            "content": "You can change your shipping address within 2 hours of placing your order by contacting customer service. Once the order enters processing, address changes are not possible. You may need to refuse delivery and place a new order."
+        },
+        {
+            "id": "faq_018",
+            "category": "shipping_tracking",
+            "title": "PO Box Shipping",
+            "content": "We can ship to PO boxes using USPS only. Expedited shipping (2-day or overnight) is not available for PO box addresses. Large or oversized items cannot be delivered to PO boxes."
+        },
+        {
+            "id": "faq_019",
+            "category": "shipping_tracking",
+            "title": "Multiple Item Orders",
+            "content": "Orders with multiple items may ship in separate packages from different warehouses. Each package will have its own tracking number. This allows us to get your items to you faster."
+        },
+        {
+            "id": "faq_020",
+            "category": "shipping_tracking",
+            "title": "Shipping Delays",
+            "content": "Occasional delays may occur due to weather, carrier issues, or high order volumes during holidays. We will notify you via email if your order is significantly delayed. Check your tracking information for the most current delivery estimate."
+        },
+
+        # Account Management (10 docs)
+        {
+            "id": "faq_021",
+            "category": "account_management",
+            "title": "Create an Account",
+            "content": "To create an account, click 'Sign Up' in the top right corner. Enter your email address, create a password, and provide your name and shipping address. You can also sign up using your Google or Facebook account for faster registration."
+        },
+        {
+            "id": "faq_022",
+            "category": "account_management",
+            "title": "Reset Password",
+            "content": "To reset your password, click 'Forgot Password' on the login page. Enter your email address and we'll send you a password reset link. The link expires after 24 hours. If you don't receive the email, check your spam folder."
+        },
+        {
+            "id": "faq_023",
+            "category": "account_management",
+            "title": "Update Account Information",
+            "content": "Log into your account and go to 'Account Settings'. You can update your email, password, phone number, shipping addresses, and payment methods. Changes are saved automatically when you click 'Update'."
+        },
+        {
+            "id": "faq_024",
+            "category": "account_management",
+            "title": "Email Preferences",
+            "content": "Manage your email preferences in 'Account Settings' under 'Communications'. You can opt in or out of promotional emails, order updates, and product recommendations. Transactional emails (order confirmations, shipping notifications) cannot be disabled."
+        },
+        {
+            "id": "faq_025",
+            "category": "account_management",
+            "title": "Delete Account",
+            "content": "To delete your account, go to 'Account Settings' and click 'Delete Account'. This action is permanent and cannot be undone. All order history, saved addresses, and payment methods will be removed. Pending orders must be completed or cancelled first."
+        },
+        {
+            "id": "faq_026",
+            "category": "account_management",
+            "title": "Premium Membership",
+            "content": "Premium membership costs $99/year and includes free shipping on all orders, early access to sales, exclusive discounts, and priority customer service. Cancel anytime with a prorated refund for unused months."
+        },
+        {
+            "id": "faq_027",
+            "category": "account_management",
+            "title": "Saved Payment Methods",
+            "content": "You can save up to 5 payment methods in your account for faster checkout. We use bank-level encryption to protect your payment information. You can set a default payment method or choose at checkout."
+        },
+        {
+            "id": "faq_028",
+            "category": "account_management",
+            "title": "Address Book",
+            "content": "Store multiple shipping addresses in your address book for easy selection at checkout. Mark one address as default for faster ordering. You can add, edit, or delete addresses anytime in 'Account Settings'."
+        },
+        {
+            "id": "faq_029",
+            "category": "account_management",
+            "title": "Order History",
+            "content": "View all past orders in 'Order History' including order details, tracking information, and receipts. You can reorder items with one click, print invoices, or initiate returns from this page. Order history is retained for 3 years."
+        },
+        {
+            "id": "faq_030",
+            "category": "account_management",
+            "title": "Account Security",
+            "content": "We recommend using a strong, unique password for your account. Enable two-factor authentication in 'Account Settings' for additional security. Never share your password with anyone. We will never ask for your password via email or phone."
+        },
+
+        # Product Information (10 docs)
+        {
+            "id": "faq_031",
+            "category": "product_info",
+            "title": "Product Availability",
+            "content": "Product availability is shown on each product page. 'In Stock' items ship within 1-2 business days. 'Low Stock' means fewer than 10 units remain. 'Out of Stock' items can be waitlisted for email notification when restocked."
+        },
+        {
+            "id": "faq_032",
+            "category": "product_info",
+            "title": "Size Guides",
+            "content": "Find detailed size guides on each product page under the 'Size Guide' tab. Measurements are provided in both inches and centimeters. If between sizes, we recommend ordering the larger size. Check customer reviews for fit feedback."
+        },
+        {
+            "id": "faq_033",
+            "category": "product_info",
+            "title": "Product Reviews",
+            "content": "Read verified customer reviews on each product page. Reviews are from customers who purchased the item. You can filter by star rating, verified purchase, or most recent. Leave your own review 48 hours after delivery."
+        },
+        {
+            "id": "faq_034",
+            "category": "product_info",
+            "title": "Product Warranty",
+            "content": "Most products come with a 1-year manufacturer warranty against defects. Electronics include a 2-year warranty. Extended warranty options are available at checkout. Warranty does not cover normal wear and tear or accidental damage."
+        },
+        {
+            "id": "faq_035",
+            "category": "product_info",
+            "title": "Product Care Instructions",
+            "content": "Care instructions are provided on product tags and in the product description. For apparel, follow washing and drying guidelines to maintain quality. For electronics, refer to the user manual included with your purchase."
+        },
+        {
+            "id": "faq_036",
+            "category": "product_info",
+            "title": "Backorder Items",
+            "content": "Items on backorder can still be purchased and will ship when inventory is replenished. Expected restock dates are shown on the product page. You will not be charged until the item ships. Cancel backorders anytime before shipment."
+        },
+        {
+            "id": "faq_037",
+            "category": "product_info",
+            "title": "Product Recommendations",
+            "content": "Our recommendation engine suggests products based on your browsing history, past purchases, and items in your cart. You can also find curated collections and trending products on our homepage and category pages."
+        },
+        {
+            "id": "faq_038",
+            "category": "product_info",
+            "title": "Price Match Guarantee",
+            "content": "We match prices from authorized retailers for identical items within 14 days of purchase. Submit a price match request with proof of the lower price. Price matches exclude clearance items, daily deals, and third-party marketplace sellers."
+        },
+        {
+            "id": "faq_039",
+            "category": "product_info",
+            "title": "Product Specifications",
+            "content": "Detailed product specifications including dimensions, materials, weight, and technical details are listed under the 'Specifications' tab on each product page. For questions not answered there, contact our product specialists."
+        },
+        {
+            "id": "faq_040",
+            "category": "product_info",
+            "title": "Compare Products",
+            "content": "Use our product comparison tool to view specifications, features, and prices side-by-side for up to 4 products. Click 'Add to Compare' on product pages, then view your comparison in the toolbar at the bottom of your screen."
+        },
+
+        # Payment & Billing (10 docs)
+        {
+            "id": "faq_041",
+            "category": "payment_billing",
+            "title": "Accepted Payment Methods",
+            "content": "We accept Visa, Mastercard, American Express, Discover, PayPal, Apple Pay, Google Pay, and Amazon Pay. Gift cards and store credit can also be used. We do not accept checks or money orders."
+        },
+        {
+            "id": "faq_042",
+            "category": "payment_billing",
+            "title": "Payment Security",
+            "content": "All payments are processed through secure, encrypted connections using 256-bit SSL encryption. We are PCI DSS compliant and never store your full credit card number on our servers. Your payment information is protected with industry-leading security."
+        },
+        {
+            "id": "faq_043",
+            "category": "payment_billing",
+            "title": "When is Payment Charged",
+            "content": "Your payment method is authorized at checkout but only charged when your order ships. For orders with multiple shipments, you'll be charged separately for each package as it ships. Preorders are charged on the release date."
+        },
+        {
+            "id": "faq_044",
+            "category": "payment_billing",
+            "title": "Gift Cards",
+            "content": "Purchase digital or physical gift cards in amounts from $10 to $500. Digital gift cards are delivered via email instantly. Physical cards ship for free. Gift cards never expire and can be combined with other payment methods. Check your balance in 'Account Settings'."
+        },
+        {
+            "id": "faq_045",
+            "category": "payment_billing",
+            "title": "Promotional Codes",
+            "content": "Enter promotional codes at checkout in the 'Promo Code' field. Only one promo code can be used per order. Codes are case-sensitive and must be entered exactly as shown. Some exclusions may apply - check the terms of each promotion."
+        },
+        {
+            "id": "faq_046",
+            "category": "payment_billing",
+            "title": "Split Payment",
+            "content": "You can split payment between a gift card and a credit card. Use your gift card balance first, then pay the remaining amount with another payment method. Splitting between multiple credit cards is not currently supported."
+        },
+        {
+            "id": "faq_047",
+            "category": "payment_billing",
+            "title": "Sales Tax",
+            "content": "Sales tax is calculated based on your shipping address and applicable state and local tax rates. Tax is shown before you complete your purchase. Some states exempt certain items from sales tax. Premium members pay the same tax rates as regular customers."
+        },
+        {
+            "id": "faq_048",
+            "category": "payment_billing",
+            "title": "Invoice and Receipts",
+            "content": "Order receipts are emailed immediately after purchase. View and download invoices from 'Order History' in your account. For business purchases, we can provide itemized invoices with your company information - contact customer service."
+        },
+        {
+            "id": "faq_049",
+            "category": "payment_billing",
+            "title": "Payment Declined",
+            "content": "If your payment is declined, verify your billing information matches your bank records exactly. Check that you have sufficient funds or credit available. Contact your bank as they may have flagged the transaction. Try a different payment method or contact customer service for assistance."
+        },
+        {
+            "id": "faq_050",
+            "category": "payment_billing",
+            "title": "Billing Address",
+            "content": "Your billing address must match the address on file with your credit card or bank. For security, we may cancel orders where the billing and shipping addresses differ significantly. Update your billing address in 'Account Settings' under payment methods."
+        }
+    ]
+
+    return faqs
+
+
+def save_corpus(output_path: str = "data/faq_docs.json"):
+    """Generate and save the FAQ corpus to a JSON file."""
+    corpus = generate_faq_corpus()
+
+    # Create data directory if it doesn't exist
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+
+    # Save to JSON
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(corpus, f, indent=2, ensure_ascii=False)
+
+    print(f"Generated {len(corpus)} FAQ documents")
+    print(f"Saved to {output_path}")
+
+    # Print category breakdown
+    from collections import Counter
+    categories = Counter(doc['category'] for doc in corpus)
+    print("\nCategory breakdown:")
+    for category, count in categories.items():
+        print(f"  {category}: {count} documents")
+
+    return corpus
+
+
+if __name__ == "__main__":
+    save_corpus()
