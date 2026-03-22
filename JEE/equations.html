@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE Advanced 2025 — Claude Opus 4.6 Results</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; background: #0f0f0f; color: #e8e8e8; padding: 2rem; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.3rem; }
+    .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .summary-bar { display: flex; gap: 2rem; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0 2rem; flex-wrap: wrap; }
+    .summary-bar div { text-align: center; }
+    .summary-bar .val { font-size: 1.6rem; font-weight: bold; color: #7ee8a2; }
+    .summary-bar .lbl { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .nav a { background: #1e1e1e; border: 1px solid #333; color: #aaa; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-family: monospace; }
+    .nav a:hover { border-color: #7ee8a2; color: #7ee8a2; }
+    .card { background: #141414; border: 1px solid #2a2a2a; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .qid { font-size: 1.1rem; font-weight: bold; color: #7ee8a2; font-family: monospace; background: #1e2e22; padding: 0.2rem 0.6rem; border-radius: 4px; }
+    .meta { font-size: 0.82rem; color: #666; }
+    .question { margin-bottom: 1rem; color: #ccc; font-size: 0.95rem; }
+    .math-block { padding: 0.5rem 0; overflow-x: auto; }
+    details summary { cursor: pointer; color: #7ea8e8; font-size: 0.88rem; margin-top: 0.5rem; user-select: none; }
+    details summary:hover { color: #aac8ff; }
+    .answer { margin-top: 1rem; background: #0d0d0d; border-left: 3px solid #7ee8a2; padding: 1rem 1.2rem; font-size: 0.88rem; color: #ccc; white-space: pre-wrap; overflow-x: auto; }
+    a { color: #7ea8e8; }
+    header { max-width: 860px; margin: 0 auto 1rem; }
+    main { max-width: 860px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JEE Advanced 2025 · Paper 2 Mathematics</h1>
+    <p class="subtitle">Claude Opus 4.6 — extended thinking, effort = max — blind evaluation</p>
+    <div class="summary-bar">
+      <div><div class="val">8 / 8</div><div class="lbl">Score</div></div>
+      <div><div class="val">100%</div><div class="lbl">Accuracy</div></div>
+      <div><div class="val">$0.79</div><div class="lbl">Total Cost</div></div>
+      <div><div class="val">331s</div><div class="lbl">Total Time</div></div>
+      <div><div class="val">92.8s</div><div class="lbl">Slowest (Q15)</div></div>
+      <div><div class="val">21.0s</div><div class="lbl">Fastest (Q14)</div></div>
+    </div>
+    <nav class="nav">
+      <a href="#q9">Q9</a><a href="#q10">Q10</a><a href="#q11">Q11</a><a href="#q12">Q12</a><a href="#q13">Q13</a><a href="#q14">Q14</a><a href="#q15">Q15</a><a href="#q16">Q16</a>
+    </nav>
+  </header>
+  <main>
+    
+    <section id="q9" class="card">
+      <div class="card-header">
+        <span class="qid">Q9</span>
+        <span class="meta">Section 2 &nbsp;|&nbsp; +3/-1 marks &nbsp;|&nbsp; ⏱ 25.652s &nbsp;|&nbsp; ✓ Ground truth: [0.7 to 0.8]</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">Let $y(x)$ be the solution of the differential equation $x^2 \frac{dy}{dx} + xy = x^2 + y^2, \quad x &gt; \frac{1}{e}$, satisfying $y(1) = 0$. Then the value of $2\frac{(y(e))^2}{y(e^2)}$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to solve the differential equation and evaluate a specific expression.
+
+## Setting Up the Substitution
+
+Starting with $x^2 \frac{dy}{dx} + xy = x^2 + y^2$, I use the substitution **$y = vx$**, so $\frac{dy}{dx} = v + x\frac{dv}{dx}$:
+
+$$x^2\left(v + x\frac{dv}{dx}\right) + x(vx) = x^2 + v^2x^2$$
+
+$$2vx^2 + x^3\frac{dv}{dx} = x^2(1 + v^2)$$
+
+$$x\frac{dv}{dx} = (1 - v)^2$$
+
+## Solving the Separable Equation
+
+Separating variables and integrating:
+$$\int \frac{dv}{(1-v)^2} = \int \frac{dx}{x} \implies \frac{1}{1-v} = \ln x + C$$
+
+Substituting back $v = y/x$:
+$$\frac{x}{x - y} = \ln x + C$$
+
+**Applying $y(1) = 0$:** $\frac{1}{1} = 0 + C \implies C = 1$
+
+## Finding the Explicit Solution
+
+From $\frac{x}{x-y} = \ln x + 1$, solving for $y$:
+
+$$y = x - \frac{x}{\ln x + 1} = x\cdot\frac{\ln x}{\ln x + 1}$$
+
+**Verification:** Substituting back confirms $x^2y' + xy = x^2 + y^2$ ✓
+
+## Computing the Required Values
+
+**At $x = e$:**
+$$y(e) = e \cdot \frac{1}{1+1} = \frac{e}{2}$$
+
+**At $x = e^2$:**
+$$y(e^2) = e^2 \cdot \frac{2}{2+1} = \frac{2e^2}{3}$$
+
+## Final Calculation
+
+$$2\cdot\frac{(y(e))^2}{y(e^2)} = 2\cdot\frac{\left(\frac{e}{2}\right)^2}{\frac{2e^2}{3}} = 2\cdot\frac{\frac{e^2}{4}}{\frac{2e^2}{3}} = 2\cdot\frac{e^2}{4}\cdot\frac{3}{2e^2} = 2\cdot\frac{3}{8} = \boxed{\dfrac{3}{4}}$$</div>
+      </details>
+    </section>
+
+    <section id="q10" class="card">
+      <div class="card-header">
+        <span class="qid">Q10</span>
+        <span class="meta">Section 2 &nbsp;|&nbsp; +3/-1 marks &nbsp;|&nbsp; ⏱ 42.934s &nbsp;|&nbsp; ✓ Ground truth: 6</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">Let $a_0, a_1, \ldots, a_{23}$ be real numbers such that $\left(1 + \frac{2}{5}x\right)^{23} = \sum_{i=0}^{23} a_i x^i$ for every real number $x$. Let $a_r$ be the largest among the numbers $a_j$ for $0 \leq j \leq 23$. Then the value of $r$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to find which coefficient $a_r$ in the expansion of $\left(1 + \frac{2}{5}x\right)^{23}$ is the largest.
+
+## Setting Up the Coefficients
+
+By the **Binomial Theorem**:
+$$a_i = \binom{23}{i}\left(\frac{2}{5}\right)^i, \qquad i = 0, 1, \ldots, 23$$
+
+Since all coefficients are **positive**, I can find the maximum by analyzing consecutive ratios.
+
+## Ratio Test for Consecutive Terms
+
+$$\frac{a_{i+1}}{a_i} = \frac{\binom{23}{i+1}}{\binom{23}{i}} \cdot \frac{2}{5} = \frac{23-i}{i+1} \cdot \frac{2}{5}$$
+
+**The sequence increases** when this ratio $&gt; 1$, and **decreases** when it $&lt; 1$.
+
+Setting the ratio equal to 1:
+$$\frac{2(23-i)}{5(i+1)} = 1 \implies 46 - 2i = 5i + 5 \implies i = \frac{41}{7} \approx 5.857$$
+
+## Verifying the Transition
+
+Since $41/7$ is **not an integer**, I check the integers on either side:
+
+| $i$ | Ratio $\frac{a_{i+1}}{a_i}$ | Comparison |
+|---|---|---|
+| $i=4$ | $\frac{19}{5} \cdot \frac{2}{5} = \frac{38}{25} = 1.52$ | $a_5 &gt; a_4$ |
+| $i=5$ | $\frac{18}{6} \cdot \frac{2}{5} = \frac{6}{5} = 1.20$ | $a_6 &gt; a_5$ ✓ |
+| $i=6$ | $\frac{17}{7} \cdot \frac{2}{5} = \frac{34}{35} \approx 0.971$ | $a_7 &lt; a_6$ ✓ |
+| $i=7$ | $\frac{16}{8} \cdot \frac{2}{5} = \frac{4}{5} = 0.80$ | $a_8 &lt; a_7$ |
+
+## Conclusion
+
+The coefficients satisfy:
+$$a_0 &lt; a_1 &lt; a_2 &lt; a_3 &lt; a_4 &lt; a_5 &lt; \boxed{a_6} &gt; a_7 &gt; a_8 &gt; \cdots &gt; a_{23}$$
+
+The maximum occurs at $a_6$, so:
+
+$$r = \boxed{6}$$</div>
+      </details>
+    </section>
+
+    <section id="q11" class="card">
+      <div class="card-header">
+        <span class="qid">Q11</span>
+        <span class="meta">Section 2 &nbsp;|&nbsp; +3/-1 marks &nbsp;|&nbsp; ⏱ 27.131s &nbsp;|&nbsp; ✓ Ground truth: [0.27 to 0.33]</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">A factory has a total of three manufacturing units, $M_1$, $M_2$, and $M_3$, which produce bulbs independent of each other. The units $M_1$, $M_2$, and $M_3$ produce bulbs in the proportions of $2:2:1$, respectively. It is known that $20\%$ of the bulbs produced in the factory are defective. It is also known that, of all the bulbs produced by $M_1$, $15\%$ are defective. Suppose that, if a randomly chosen bulb produced in the factory is found to be defective, the probability that it was produced by $M_2$ is $\frac{2}{5}$. If a bulb is chosen randomly from the bulbs produced by $M_3$, then the probability that it is defective is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to find the defective rate of M3 using the given information about production proportions, overall defective rate, and conditional probability.
+
+## Setting Up the Problem
+
+**Production proportions** (2:2:1):
+$$P(M_1) = \frac{2}{5}, \quad P(M_2) = \frac{2}{5}, \quad P(M_3) = \frac{1}{5}$$
+
+**Known values:**
+- $P(D) = 0.20$ (overall defective rate)
+- $P(D \mid M_1) = 0.15$ (defective rate from M1)
+- $P(M_2 \mid D) = \frac{2}{5}$ (given a defective bulb, probability it's from M2)
+
+**Unknowns:** $P(D \mid M_2) = p_2$ and $P(D \mid M_3) = p_3$
+
+## Step 1: Find $p_2$ Using Bayes' Theorem
+
+$$P(M_2 \mid D) = \frac{P(D \mid M_2) \cdot P(M_2)}{P(D)}$$
+
+$$\frac{2}{5} = \frac{p_2 \cdot \frac{2}{5}}{\frac{1}{5}} = 2p_2$$
+
+$$\boxed{p_2 = \frac{1}{5} = 0.20}$$
+
+## Step 2: Find $p_3$ Using the Law of Total Probability
+
+$$P(D) = P(D \mid M_1)\,P(M_1) + P(D \mid M_2)\,P(M_2) + P(D \mid M_3)\,P(M_3)$$
+
+$$0.20 = (0.15)\!\left(\frac{2}{5}\right) + (0.20)\!\left(\frac{2}{5}\right) + p_3\!\left(\frac{1}{5}\right)$$
+
+$$0.20 = 0.06 + 0.08 + \frac{p_3}{5}$$
+
+$$0.06 = \frac{p_3}{5}$$
+
+$$p_3 = 0.30$$
+
+## Verification
+
+$$P(D) = 0.06 + 0.08 + 0.06 = 0.20 \checkmark$$
+$$P(M_2 \mid D) = \frac{0.08}{0.20} = \frac{2}{5} \checkmark$$
+
+## Answer
+
+The probability that a randomly chosen bulb from $M_3$ is defective is:
+
+$$\boxed{\dfrac{3}{10}}$$</div>
+      </details>
+    </section>
+
+    <section id="q12" class="card">
+      <div class="card-header">
+        <span class="qid">Q12</span>
+        <span class="meta">Section 2 &nbsp;|&nbsp; +3/-1 marks &nbsp;|&nbsp; ⏱ 47.452s &nbsp;|&nbsp; ✓ Ground truth: -2</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">Consider the vectors $\vec{x} = \hat{i} + 2\hat{j} + 3\hat{k}$, $\vec{y} = 2\hat{i} + 3\hat{j} + \hat{k}$, and $\vec{z} = 3\hat{i} + \hat{j} + 2\hat{k}$. For two distinct positive real numbers $\alpha$ and $\beta$, define $\vec{X} = \alpha\vec{x} + \beta\vec{y} - \vec{z}$, $\vec{Y} = \alpha\vec{y} + \beta\vec{z} - \vec{x}$, and $\vec{Z} = \alpha\vec{z} + \beta\vec{x} - \vec{y}$. If the vectors $\vec{X}$, $\vec{Y}$, and $\vec{Z}$ lie in a plane, then the value of $\alpha + \beta - 3$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to find when vectors $\vec{X}$, $\vec{Y}$, $\vec{Z}$ are coplanar, meaning their scalar triple product equals zero.
+
+## Setting Up the Coefficient Matrix
+
+Expressing the vectors in terms of $\vec{x}$, $\vec{y}$, $\vec{z}$:
+
+| | $\vec{x}$ | $\vec{y}$ | $\vec{z}$ |
+|---|---|---|---|
+| $\vec{X}$ | $\alpha$ | $\beta$ | $-1$ |
+| $\vec{Y}$ | $-1$ | $\alpha$ | $\beta$ |
+| $\vec{Z}$ | $\beta$ | $-1$ | $\alpha$ |
+
+The coplanarity condition gives:
+$$[\vec{X}, \vec{Y}, \vec{Z}] = \det(M) \cdot [\vec{x}, \vec{y}, \vec{z}] = 0$$
+
+## Computing $[\vec{x}, \vec{y}, \vec{z}]$
+
+$$[\vec{x}, \vec{y}, \vec{z}] = \begin{vmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 3 &amp; 1 \\ 3 &amp; 1 &amp; 2 \end{vmatrix} = 1(5) - 2(1) + 3(-7) = -18 \neq 0$$
+
+Since $[\vec{x}, \vec{y}, \vec{z}] \neq 0$, I need **$\det(M) = 0$**.
+
+## Computing $\det(M)$
+
+$$\det(M) = \begin{vmatrix} \alpha &amp; \beta &amp; -1 \\ -1 &amp; \alpha &amp; \beta \\ \beta &amp; -1 &amp; \alpha \end{vmatrix}$$
+
+Expanding along the first row:
+$$= \alpha(\alpha^2 + \beta) - \beta(-\alpha - \beta^2) + (-1)(1 - \alpha\beta)$$
+$$= \alpha^3 + \alpha\beta + \alpha\beta + \beta^3 - 1 + \alpha\beta = \alpha^3 + \beta^3 + 3\alpha\beta - 1$$
+
+## Factoring Using the Identity
+
+Applying $a^3 + b^3 + c^3 - 3abc = (a+b+c)(a^2+b^2+c^2-ab-bc-ca)$ with $a=\alpha$, $b=\beta$, $c=-1$:
+
+$$\alpha^3 + \beta^3 + 3\alpha\beta - 1 = (\alpha + \beta - 1)\underbrace{(\alpha^2 + \beta^2 + 1 - \alpha\beta + \alpha + \beta)}_{\text{second factor}}$$
+
+**Checking the second factor** for positive $\alpha, \beta$:
+- $\alpha^2 + \beta^2 - \alpha\beta = \left(\alpha - \frac{\beta}{2}\right)^2 + \frac{3\beta^2}{4} &gt; 0$
+- $\alpha + \beta + 1 &gt; 0$
+
+So the second factor is **always positive** for positive real numbers. 
+
+## Solving the Equation
+
+The only solution is:
+$$\alpha + \beta - 1 = 0 \implies \alpha + \beta = 1$$
+
+This admits infinitely many pairs of distinct positive reals (e.g., $\alpha = 0.3$, $\beta = 0.7$). ✓
+
+## Final Answer
+
+$$\alpha + \beta - 3 = 1 - 3 = \boxed{-2}$$</div>
+      </details>
+    </section>
+
+    <section id="q13" class="card">
+      <div class="card-header">
+        <span class="qid">Q13</span>
+        <span class="meta">Section 3 &nbsp;|&nbsp; +4/0 marks &nbsp;|&nbsp; ⏱ 40.298s &nbsp;|&nbsp; ✓ Ground truth: -2</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">For a non-zero complex number $z$, let $\arg(z)$ denote the principal argument of $z$, with $-\pi &lt; \arg(z) \leq \pi$. Let $\omega$ be the cube root of unity for which $0 &lt; \arg(\omega) &lt; \pi$. Let $\alpha = \arg\left(\sum_{n=1}^{2025} (-\omega)^n\right)$. Then the value of $\frac{3\alpha}{\pi}$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to find the cube root of unity ω with positive argument, compute the given sum, then determine the argument.
+
+## Setting Up the Key Values
+
+**Finding ω:** The cube roots of unity are $1, e^{2\pi i/3}, e^{-2\pi i/3}$. Since $0 &lt; \arg(\omega) &lt; \pi$:
+$$\omega = e^{2\pi i/3} = -\tfrac{1}{2} + \tfrac{\sqrt{3}}{2}i$$
+
+**Finding $-\omega$:** 
+$$-\omega = \tfrac{1}{2} - \tfrac{\sqrt{3}}{2}i = e^{-i\pi/3}$$
+
+**Key property:** $(-\omega)^6 = 1$, so $-\omega$ is a primitive 6th root of unity.
+
+## Computing the Cyclic Pattern
+
+Since $(-\omega)^6 = 1$, I'll find the sum over one complete period:
+
+| $n$ | $(-\omega)^n$ |
+|-----|---------------|
+| 1 | $-\omega$ |
+| 2 | $\omega^2$ |
+| 3 | $-1$ |
+| 4 | $\omega$ |
+| 5 | $-\omega^2$ |
+| 6 | $1$ |
+
+**Sum over one cycle:** $(-\omega + \omega^2 - 1 + \omega - \omega^2 + 1) = 0$
+
+## Evaluating the Sum
+
+Since $2025 = 6 \times 337 + 3$, the first $2022$ terms form **337 complete cycles** (each summing to 0), leaving:
+
+$$S = (-\omega)^{2023} + (-\omega)^{2024} + (-\omega)^{2025} = (-\omega)^1 + (-\omega)^2 + (-\omega)^3$$
+
+$$S = -\omega + \omega^2 - 1$$
+
+**Substituting explicit values:**
+$$S = \underbrace{\left(\tfrac{1}{2} - \tfrac{\sqrt{3}}{2}i\right)}_{-\omega} + \underbrace{\left(-\tfrac{1}{2} - \tfrac{\sqrt{3}}{2}i\right)}_{\omega^2} + \underbrace{(-1)}_{-1} = -1 - \sqrt{3}\,i$$
+
+## Verification via Geometric Series
+
+$$S = \frac{e^{-i\pi/3}(1 - e^{-i\pi \cdot 2025/3})}{1 - e^{-i\pi/3}} = \frac{2e^{-i\pi/3}}{e^{i\pi/3}} = 2e^{-2i\pi/3} = -1 - \sqrt{3}\,i \checkmark$$
+
+## Finding the Argument
+
+The point $-1 - \sqrt{3}\,i$ lies in the **third quadrant** with:
+$$|S| = 2, \qquad \text{reference angle} = \arctan\!\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3}$$
+
+$$\alpha = \arg(S) = -\pi + \frac{\pi}{3} = -\frac{2\pi}{3}$$
+
+This satisfies $-\pi &lt; \alpha \leq \pi$. ✓
+
+## Final Computation
+
+$$\frac{3\alpha}{\pi} = \frac{3\left(-\dfrac{2\pi}{3}\right)}{\pi} = \boxed{-2}$$</div>
+      </details>
+    </section>
+
+    <section id="q14" class="card">
+      <div class="card-header">
+        <span class="qid">Q14</span>
+        <span class="meta">Section 3 &nbsp;|&nbsp; +4/0 marks &nbsp;|&nbsp; ⏱ 20.995s &nbsp;|&nbsp; ✓ Ground truth: [0.2 to 0.3]</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">Let $\mathbb{R}$ denote the set of all real numbers. Let $f: \mathbb{R} \to \mathbb{R}$ and $g: \mathbb{R} \to (0, 4)$ be functions defined by $f(x) = \log_e(x^2 + 2x + 4)$, and $g(x) = \frac{4}{1 + e^{-2x}}$. Define the composite function $f \circ g^{-1}$ by $(f \circ g^{-1})(x) = f(g^{-1}(x))$, where $g^{-1}$ is the inverse of the function $g$. Then the value of the derivative of the composite function $f \circ g^{-1}$ at $x = 2$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to find the derivative of $f \circ g^{-1}$ at $x = 2$ using the chain rule.
+
+## Setting Up the Inverse Function
+
+**Finding $g^{-1}(x)$:** Starting with $y = \frac{4}{1 + e^{-2x}}$, I solve for $x$:
+
+$$y(1 + e^{-2x}) = 4 \implies e^{-2x} = \frac{4-y}{y} \implies x = \frac{1}{2}\ln\left(\frac{y}{4-y}\right)$$
+
+So: $g^{-1}(x) = \frac{1}{2}\ln\left(\frac{x}{4-x}\right)$
+
+## Evaluating at $x = 2$
+
+**Finding $g^{-1}(2)$:**
+$$g^{-1}(2) = \frac{1}{2}\ln\left(\frac{2}{4-2}\right) = \frac{1}{2}\ln(1) = 0$$
+
+## Computing the Derivative via Chain Rule
+
+$$(f \circ g^{-1})'(x) = f'\!\big(g^{-1}(x)\big) \cdot (g^{-1})'(x)$$
+
+**Computing $f'(t)$:**
+$$f'(t) = \frac{2t + 2}{t^2 + 2t + 4}$$
+
+At $t = g^{-1}(2) = 0$:
+$$f'(0) = \frac{0 + 2}{0 + 0 + 4} = \frac{1}{2}$$
+
+**Computing $(g^{-1})'(x)$:**
+$$g^{-1}(x) = \frac{1}{2}\big[\ln x - \ln(4-x)\big]$$
+
+$$(g^{-1})'(x) = \frac{1}{2}\left[\frac{1}{x} + \frac{1}{4-x}\right] = \frac{1}{2}\cdot\frac{4}{x(4-x)} = \frac{2}{x(4-x)}$$
+
+At $x = 2$:
+$$(g^{-1})'(2) = \frac{2}{2 \cdot 2} = \frac{1}{2}$$
+
+## Final Computation
+
+$$(f \circ g^{-1})'(2) = f'(0) \cdot (g^{-1})'(2) = \frac{1}{2} \cdot \frac{1}{2} = \boxed{\dfrac{1}{4}}$$</div>
+      </details>
+    </section>
+
+    <section id="q15" class="card">
+      <div class="card-header">
+        <span class="qid">Q15</span>
+        <span class="meta">Section 3 &nbsp;|&nbsp; +4/0 marks &nbsp;|&nbsp; ⏱ 92.76s &nbsp;|&nbsp; ✓ Ground truth: 3</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">Let $\alpha = \frac{1}{\sin 60^\circ \sin 61^\circ} + \frac{1}{\sin 62^\circ \sin 63^\circ} + \cdots + \frac{1}{\sin 118^\circ \sin 119^\circ}$. Then the value of $\left(\frac{\csc 1^\circ}{\alpha}\right)^2$ is $\underline{\quad\quad\quad\quad}$.</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer">Looking at this problem, I need to evaluate a sum with a specific pattern and then compute a squared ratio.
+
+## Setting Up the Sum
+
+The sum has terms of the form $\frac{1}{\sin(60+2k)°\sin(61+2k)°}$ for $k = 0, 1, \ldots, 29$ (that's **30 terms**).
+
+**Key identity:** Since each pair of angles differs by 1°:
+$$\frac{1}{\sin n° \sin(n+1)°} = \frac{1}{\sin 1°}\big(\cot n° - \cot(n+1)°\big)$$
+
+Applying this to each term:
+$$\alpha = \frac{1}{\sin 1°}\Big[(\cot 60°-\cot 61°) + (\cot 62°-\cot 63°) + \cdots + (\cot 118°-\cot 119°)\Big]$$
+
+## Separating Even and Odd Cotangents
+
+Regrouping:
+$$\alpha = \frac{A - B}{\sin 1°}$$
+
+where $A = \cot 60° + \cot 62° + \cdots + \cot 118°$ and $B = \cot 61° + \cot 63° + \cdots + \cot 119°$.
+
+**Evaluating $B$ (odd angles 61° to 119°):** Using $\cot(180°-x) = -\cot x$, I pair complementary angles:
+$$(61°,119°),\; (63°,117°),\; \ldots,\; (89°,91°) \quad \Longrightarrow \quad 15 \text{ pairs}$$
+Each pair sums to zero, covering all 30 terms. So $B = 0$.
+
+**Evaluating $A$ (even angles 60° to 118°):** Similarly pairing:
+$$(62°,118°),\; (64°,116°),\; \ldots,\; (88°,92°) \quad \Longrightarrow \quad 14 \text{ pairs}$$
+Each pair sums to zero, using 28 of the 30 terms. The **remaining terms** are:
+- $\cot 90° = 0$  
+- $\cot 60° = \dfrac{1}{\sqrt{3}}$
+
+So $A = \dfrac{1}{\sqrt{3}}$.
+
+## Computing $\alpha$
+
+$$\alpha = \frac{A - B}{\sin 1°} = \frac{1/\sqrt{3}}{\sin 1°} = \frac{1}{\sqrt{3}\,\sin 1°}$$
+
+## Final Calculation
+
+$$\frac{\csc 1°}{\alpha} = \frac{1/\sin 1°}{1/(\sqrt{3}\,\sin 1°)} = \frac{1}{\sin 1°} \cdot \sqrt{3}\,\sin 1° = \sqrt{3}$$
+
+$$\left(\frac{\csc 1°}{\alpha}\right)^2 = (\sqrt{3})^2 = \boxed{3}$$</div>
+      </details>
+    </section>
+
+    <section id="q16" class="card">
+      <div class="card-header">
+        <span class="qid">Q16</span>
+        <span class="meta">Section 3 &nbsp;|&nbsp; +4/0 marks &nbsp;|&nbsp; ⏱ 34.137s &nbsp;|&nbsp; ✓ Ground truth: 21</span>
+      </div>
+      <div class="question">
+        <strong>Question:</strong>
+        <div class="math-block">If $\alpha = \int_{\frac{1}{2}}^{2} \frac{\tan^{-1} x}{2x^2 - 3x + 2}\, dx$, then the value of $\sqrt{7}\tan\left(\frac{2\alpha\sqrt{7}}{\pi}\right)$ is $\underline{\quad\quad\quad\quad}$.   (Here, the inverse trigonometric function $\tan^{-1} x$ assumes values in $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$.)</div>
+      </div>
+      <details>
+        <summary>Model's full working →</summary>
+        <div class="answer"># Evaluating $\alpha = \int_{1/2}^{2} \frac{\tan^{-1} x}{2x^2 - 3x + 2}\, dx$
+
+## Step 1: Exploit the Reciprocal Limits
+
+Since the limits $\frac{1}{2}$ and $2$ are reciprocals, I substitute $x = \frac{1}{t}$, so $dx = -\frac{1}{t^2}\,dt$ and $\tan^{-1}\!\left(\frac{1}{t}\right) = \frac{\pi}{2} - \tan^{-1} t$ for $t &gt; 0$.
+
+The denominator transforms as:
+$$2x^2 - 3x + 2 \;\Big|_{x=1/t} = \frac{2t^2 - 3t + 2}{t^2}$$
+
+After substitution (and flipping limits):
+$$\alpha = \int_{1/2}^{2} \frac{\frac{\pi}{2} - \tan^{-1} t}{2t^2 - 3t + 2}\, dt$$
+
+## Step 2: Add Original and Transformed Integrals
+
+Adding the two expressions for $\alpha$:
+$$2\alpha = \int_{1/2}^{2} \frac{\frac{\pi}{2}}{2x^2 - 3x + 2}\,dx \quad\Longrightarrow\quad \alpha = \frac{\pi}{4}\int_{1/2}^{2} \frac{dx}{2x^2 - 3x + 2}$$
+
+## Step 3: Evaluate the Remaining Integral
+
+Completing the square: $2x^2 - 3x + 2 = 2\!\left[\left(x - \tfrac{3}{4}\right)^2 + \tfrac{7}{16}\right]$
+
+$$\int \frac{dx}{2\left[\left(x-\frac{3}{4}\right)^2 + \left(\frac{\sqrt{7}}{4}\right)^2\right]} = \frac{2}{\sqrt{7}}\tan^{-1}\!\left(\frac{4x-3}{\sqrt{7}}\right)$$
+
+**Evaluating at the bounds:**
+$$\frac{2}{\sqrt{7}}\left[\tan^{-1}\!\left(\frac{5}{\sqrt{7}}\right) - \tan^{-1}\!\left(\frac{-1}{\sqrt{7}}\right)\right] = \frac{2}{\sqrt{7}}\left[\tan^{-1}\!\left(\frac{5}{\sqrt{7}}\right) + \tan^{-1}\!\left(\frac{1}{\sqrt{7}}\right)\right]$$
+
+**Using the addition formula** ($ab = \frac{5}{7} &lt; 1$, so no correction needed):
+$$\tan^{-1}\!\left(\frac{5}{\sqrt{7}}\right) + \tan^{-1}\!\left(\frac{1}{\sqrt{7}}\right) = \tan^{-1}\!\left(\frac{\frac{6}{\sqrt{7}}}{1 - \frac{5}{7}}\right) = \tan^{-1}\!\left(\frac{6/\sqrt{7}}{2/7}\right) = \tan^{-1}(3\sqrt{7})$$
+
+## Step 4: Assemble $\alpha$ and Compute the Answer
+
+$$\alpha = \frac{\pi}{4} \cdot \frac{2}{\sqrt{7}}\,\tan^{-1}(3\sqrt{7}) = \frac{\pi}{2\sqrt{7}}\,\tan^{-1}(3\sqrt{7})$$
+
+Now compute the argument:
+$$\frac{2\alpha\sqrt{7}}{\pi} = \frac{2\sqrt{7}}{\pi}\cdot\frac{\pi}{2\sqrt{7}}\,\tan^{-1}(3\sqrt{7}) = \tan^{-1}(3\sqrt{7})$$
+
+Therefore:
+$$\sqrt{7}\,\tan\!\left(\frac{2\alpha\sqrt{7}}{\pi}\right) = \sqrt{7}\,\tan\!\Big(\tan^{-1}(3\sqrt{7})\Big) = \sqrt{7}\cdot 3\sqrt{7} = 3\times 7 = \boxed{21}$$</div>
+      </details>
+    </section>
+
+  </main>
+</body>
+</html>
