@@ -42,7 +42,7 @@ Eight questions. Eight correct answers. Under a dollar.
 
 Q15 took **92 seconds** — nearly 4× longer than the fastest question. It involved a telescoping trigonometric sum where the trick is recognising a sine difference identity buried inside products of consecutive sines. Students who've seen this pattern before get it in two minutes. Those who haven't spend twenty.
 
-Opus spent 92 seconds and still got there. The [full working is here](equations.html#q15).
+Opus spent 92 seconds and still got there. The [full working is here](https://iamagp.github.io/AGs_ANTHROPIC/JEE/equations.html#q15).
 
 ---
 
@@ -54,7 +54,7 @@ No prompt told it to check its work. It just did.
 
 Call that "next-token prediction" if you want. The label stops being satisfying when the token sequence looks like this.
 
-The [equations and working for Q12 are here](equations.html#q12).
+The [equations and working for Q12 are here](https://iamagp.github.io/AGs_ANTHROPIC/JEE/equations.html#q12).
 
 ---
 
@@ -72,4 +72,4 @@ I'm not here to tell you what to conclude. The scoreboard is 8/8.
 
 ---
 
-*All raw API responses, thinking traces, and timings are in the [GitHub repo](https://github.com/adithyagiridharan/Anthropic). The rendered equations for all eight questions are [here](equations.html).*
+*All raw API responses, thinking traces, and timings are in the [GitHub repo](https://github.com/IamAGP/AGs_ANTHROPIC). The rendered equations for all eight questions are [here](https://iamagp.github.io/AGs_ANTHROPIC/JEE/equations.html).*
